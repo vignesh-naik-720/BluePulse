@@ -47,7 +47,7 @@ npm install
 2) Create a local environment file
 
 ```powershell
-copy .env.example .env
+code .env
 # then edit .env and add your CEREBRAS_API_KEY
 ```
 
@@ -169,6 +169,3 @@ Ethics & data considerations
 - Avoid collecting PII. If adding analytics, keep it anonymous and opt-in where possible.
 - Be transparent about model limitations and present AI-generated content as assistance, not authoritative fact without verification.
 
----
-
-If you'd like, I can also keep a short `CONTRIBUTING.md` or `CHANGELOG.md` but for now I removed the other docs to keep the repository focused.
