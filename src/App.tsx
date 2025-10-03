@@ -32,7 +32,7 @@ function App() {
   const fetchArticles = async () => {
     setLoadingArticles(true);
     try {
-      const response = await fetch('http://localhost:3001/api/fetch-feeds');
+      const response = await fetch('https://bluepulse-1.onrender.com/api/fetch-feeds');
       const data = await response.json();
 
       if (data.articles && data.articles.length > 0) {
@@ -60,7 +60,7 @@ function App() {
   const fetchSummary = async (articlesToSummarize: Article[]) => {
     setLoadingSummary(true);
     try {
-      const response = await fetch('http://localhost:3001/api/summarize', {
+      const response = await fetch('https://bluepulse-1.onrender.com/api/summarize', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
