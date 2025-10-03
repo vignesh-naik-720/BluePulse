@@ -7,12 +7,12 @@ interface DailyDigestProps {
 
 export default function DailyDigest({ digest, loading }: DailyDigestProps) {
   return (
-    <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-white/20">
+    <div className="glass rounded-2xl p-8 shadow-2xl border border-white/12">
       <div className="flex items-center gap-3 mb-6">
-        <div className="p-3 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-xl">
+        <div className="p-3 btn-accent rounded-xl flex items-center justify-center">
           <Newspaper className="w-6 h-6 text-white" />
         </div>
-        <h2 className="text-2xl font-bold text-white">Daily Digest</h2>
+        <h2 className="text-2xl font-bold">Daily Digest</h2>
       </div>
 
       {loading ? (

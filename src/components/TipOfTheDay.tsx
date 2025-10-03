@@ -7,12 +7,12 @@ interface TipOfTheDayProps {
 
 export default function TipOfTheDay({ tip, loading }: TipOfTheDayProps) {
   return (
-    <div className="bg-gradient-to-br from-emerald-400/20 to-teal-500/20 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-emerald-300/30">
+    <div className="glass rounded-2xl p-8 shadow-2xl border border-white/12">
       <div className="flex items-center gap-3 mb-6">
-        <div className="p-3 bg-gradient-to-br from-emerald-400 to-teal-500 rounded-xl animate-pulse">
+        <div className="p-3 btn-accent rounded-xl animate-pulse flex items-center justify-center">
           <Lightbulb className="w-6 h-6 text-white" />
         </div>
-        <h2 className="text-2xl font-bold text-white">Tip of the Day</h2>
+        <h2 className="text-2xl font-bold">Tip of the Day</h2>
       </div>
 
       {loading ? (

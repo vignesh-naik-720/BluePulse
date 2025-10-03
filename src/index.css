@@ -1,12 +1,62 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Design tokens and global visual style */
+:root {
+  --accent: #06b6d4; /* cyan-400 */
+  --accent-2: #0ea5a4; /* teal-ish */
+  --glass: rgba(255,255,255,0.06);
+  --glass-strong: rgba(255,255,255,0.09);
+  --muted: rgba(255,255,255,0.75);
+}
+
 @layer base {
+  html, body, #root {
+    height: 100%;
+  }
+
   body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    color: white;
+    background-image: url('/ocean-bg.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    /* subtle dark overlay */
+    background-color: rgba(3,7,18,0.55);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: white;
+  }
+
+  /* Hero heading */
+  .hero-title {
+    text-shadow: 0 6px 24px rgba(2,6,23,0.6);
+  }
+
+  /* Glass card */
+  .glass {
+    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+    backdrop-filter: blur(6px) saturate(120%);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  /* Buttons */
+  .btn-accent {
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    color: white;
+    box-shadow: 0 8px 24px rgba(2,13,23,0.45);
+  }
+
+  .muted {
+    color: var(--muted);
   }
 }
 
@@ -18,3 +68,5 @@
     animation-delay: 0.2s;
   }
 }
+
+

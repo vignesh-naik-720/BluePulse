@@ -61,20 +61,28 @@ export default function QnABox({ articles }: QnABoxProps) {
     <>
       {/* Floating Button */}
       {!isOpen && (
-        <button
-          onClick={() => setIsOpen(true)}
-          className="fixed bottom-8 right-8 p-4 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full shadow-2xl hover:shadow-cyan-400/50 transition-all duration-300 hover:scale-110 group z-50"
-          aria-label="Open Q&A"
-        >
-          <MessageCircle className="w-6 h-6 text-white group-hover:rotate-12 transition-transform" />
-        </button>
+        <div className="fixed bottom-8 right-8 z-50 flex items-center gap-3">
+          <button
+            onClick={() => setIsOpen(true)}
+            className="relative p-5 w-20 h-20 btn-accent rounded-full shadow-2xl hover:scale-105 transform transition-transform ring-0 hover:ring-8 hover:ring-white/10 focus:outline-none"
+            aria-label="Open Q&A"
+          >
+            <span className="absolute -top-3 -left-3 w-6 h-6 bg-white/10 rounded-full animate-pulse opacity-60"></span>
+            <MessageCircle className="w-9 h-9 text-white mx-auto" />
+          </button>
+
+          {/* Hover label */}
+          <div className="hidden group-hover:block lg:block">
+            <div className="px-3 py-2 bg-white/6 glass rounded-full text-sm font-semibold">Ask about marine pollution</div>
+          </div>
+        </div>
       )}
 
       {/* Chat Box */}
       {isOpen && (
-        <div className="fixed bottom-8 right-8 w-96 max-w-[calc(100vw-4rem)] bg-white/10 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 overflow-hidden z-50">
+  <div className="fixed bottom-8 right-8 w-96 max-w-[calc(100vw-4rem)] glass rounded-2xl shadow-2xl border border-white/12 overflow-hidden z-50">
           {/* Header */}
-          <div className="bg-gradient-to-r from-cyan-500 to-blue-600 p-4 flex items-center justify-between">
+          <div className="p-4 flex items-center justify-between" style={{background: 'linear-gradient(90deg, rgba(6,182,212,0.12), rgba(14,165,164,0.10))'}}>
             <div className="flex items-center gap-2">
               <MessageCircle className="w-5 h-5 text-white" />
               <h3 className="text-white font-semibold">Ask About Articles</h3>

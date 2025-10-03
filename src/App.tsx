@@ -4,6 +4,7 @@ import DailyDigest from './components/DailyDigest';
 import TipOfTheDay from './components/TipOfTheDay';
 import ArticlesList from './components/ArticlesList';
 import QnABox from './components/QnABox';
+import QuizBox from './components/QuizBox';
 
 interface Article {
   title: string;
@@ -93,8 +94,10 @@ function App() {
     }
   };
 
+  const TOP_N = 3; // how many top headlines to display in the UI
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-cyan-900 relative overflow-hidden">
+    <div className="min-h-screen relative overflow-hidden">
       {/* Animated Wave Background */}
       <div className="absolute top-0 left-0 w-full opacity-30 pointer-events-none">
         <img src="/waves.svg" alt="" className="w-full h-64 object-cover" />
@@ -104,11 +107,11 @@ function App() {
       <header className="relative z-10 pt-12 pb-8 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-4 mb-4">
-            <div className="p-4 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-2xl shadow-2xl">
+            <div className="p-4 btn-accent rounded-2xl shadow-2xl flex items-center justify-center">
               <Waves className="w-10 h-10 text-white" />
             </div>
             <div>
-              <h1 className="text-5xl font-bold text-white tracking-tight">BluePulse</h1>
+              <h1 className="hero-title text-5xl font-bold tracking-tight">BluePulse</h1>
               <p className="text-cyan-200 text-lg">Marine Pollution Daily Digest</p>
             </div>
           </div>
@@ -117,18 +120,20 @@ function App() {
           </p>
         </div>
       </header>
-
       {/* Main Content */}
       <main className="relative z-10 px-6 pb-24">
-        <div className="max-w-6xl mx-auto space-y-8">
+        <div className="max-w-6xl mx-auto space-y-8 p-6 glass rounded-3xl">
           {/* Daily Digest */}
           <DailyDigest digest={summary.digest} loading={loadingSummary} />
 
           {/* Tip of the Day */}
           <TipOfTheDay tip={summary.tipOfTheDay} loading={loadingSummary} />
 
-          {/* Articles List */}
-          <ArticlesList articles={articles} loading={loadingArticles} />
+          {/* Quiz Box (new) */}
+          <QuizBox />
+
+          {/* Articles List (show top N headlines) */}
+          <ArticlesList articles={articles.slice(0, TOP_N)} loading={loadingArticles} />
         </div>
       </main>
 

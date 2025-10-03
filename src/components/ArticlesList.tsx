@@ -23,8 +23,8 @@ export default function ArticlesList({ articles, loading }: ArticlesListProps) {
   };
 
   return (
-    <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-white/20">
-      <h2 className="text-2xl font-bold text-white mb-6">Latest Headlines</h2>
+    <div className="glass rounded-2xl p-8 shadow-2xl border border-white/12">
+      <h2 className="text-2xl font-bold mb-6">Latest Headlines</h2>
 
       {loading ? (
         <div className="space-y-4">
