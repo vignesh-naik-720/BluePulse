@@ -1,0 +1,36 @@
+# Render service manifest for BluePulse
+# Defines two services: backend (web) and frontend (static site)
+#
+# Notes:
+# - Do NOT store secrets in this file. Add them via the Render dashboard or CLI (CEREBRAS_API_KEY, etc.).
+# - After pushing this file, connect your GitHub repo in Render and create services using this manifest.
+
+services:
+  - type: web
+    name: bluepulse-backend
+    env: node
+    plan: free
+    region: oregon
+    repo: "vignesh-naik-720/BluePulse"
+    branch: main
+    buildCommand: ""
+    startCommand: "node server.js"
+    autoDeploy: true
+    # Environment variables (set these via the Render dashboard - do not include secrets here)
+    # envVars:
+    #   CEREBRAS_API_KEY: "REPLACE_ME_IN_RENDER_DASHBOARD"
+    #   CEREBRAS_MODEL: "llama-3.3-70b"
+
+  - type: static_site
+    name: bluepulse-frontend
+    env: static
+    plan: free
+    region: oregon
+    repo: "vignesh-naik-720/BluePulse"
+    branch: main
+    buildCommand: "npm install && npm run build"
+    publishPath: "dist"
+    autoDeploy: true
+    # Frontend environment variables (set via Render dashboard)
+    # envVars:
+    #   VITE_API_BASE_URL: "https://<your-backend-url>"
