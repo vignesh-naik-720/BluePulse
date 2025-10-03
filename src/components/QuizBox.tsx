@@ -22,7 +22,7 @@ export default function QuizBox() {
     setLoading(true);
     try {
       // Add a timestamp to avoid browser caching and request with no-cache
-      const url = `http://localhost:3001/api/generate-quiz?ts=${Date.now()}`;
+      const url = `https://bluepulse-1.onrender.com/api/generate-quiz?ts=${Date.now()}`;
       const res = await fetch(url, {
         method: 'GET',
         cache: 'no-cache',
