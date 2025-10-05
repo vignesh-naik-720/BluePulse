@@ -32,6 +32,34 @@ Public assets
 - `public/waves.svg` — animated wave header
 - `public/ocean-bg.jpg` — ocean background image used by the app
 
+## Impact & goals
+
+BluePulse is designed not only as a news aggregator but as an educational and behavioral tool to increase awareness of marine pollution and encourage concrete action. This section explains the intended impact, target audiences, suggested metrics to measure success, and calls-to-action for users and contributors.
+
+Intended impact
+- Increase awareness: deliver short, factual daily summaries so readers can quickly understand major ocean-pollution issues.
+- Encourage action: provide one clear, practical tip each day (Tip of the Day) to nudge behavior change (reusables, proper disposal, policy engagement).
+- Teach and retain: a short quiz reinforces learning and improves knowledge retention.
+
+Target audiences
+- Concerned citizens and coastal communities
+- Environmental educators and students
+- NGOs and local advocacy groups
+- Journalists and researchers looking for quick situational awareness
+
+Calls-to-action (CTAs)
+- For users: read the Daily Digest, try the quiz, adopt the Tip of the Day, and share articles/tips with local groups.
+- For teachers: use the digest + quiz as a short classroom warm-up or homework prompt.
+- For contributors: help by adding sources, improving prompts for factuality, adding caching, or building small features like bookmarking and email digests.
+
+How to measure locally
+- Add a simple analytics endpoint or inject a minimal event logger to collect anonymous counters (digest viewed, quiz submitted). Keep privacy in mind — prefer aggregated counts over user-level data.
+- Store metrics in a small database or even a CSV during early testing; later migrate to a metrics platform or Prometheus.
+
+Ethics & data considerations
+- Do not store or expose Cerebras API keys in client code or public repos.
+- Avoid collecting PII. If adding analytics, keep it anonymous and opt-in where possible.
+- Be transparent about model limitations and present AI-generated content as assistance, not authoritative fact without verification.
 ## Quick start (developer)
 
 Prerequisites
@@ -133,39 +161,5 @@ Next recommended tasks:
 - Icons: Lucide React
 - License: MIT
 
-## Impact & goals
 
-BluePulse is designed not only as a news aggregator but as an educational and behavioral tool to increase awareness of marine pollution and encourage concrete action. This section explains the intended impact, target audiences, suggested metrics to measure success, and calls-to-action for users and contributors.
-
-Intended impact
-- Increase awareness: deliver short, factual daily summaries so readers can quickly understand major ocean-pollution issues.
-- Encourage action: provide one clear, practical tip each day (Tip of the Day) to nudge behavior change (reusables, proper disposal, policy engagement).
-- Teach and retain: a short quiz reinforces learning and improves knowledge retention.
-
-Target audiences
-- Concerned citizens and coastal communities
-- Environmental educators and students
-- NGOs and local advocacy groups
-- Journalists and researchers looking for quick situational awareness
-
-Measurable metrics (suggested)
-- Daily active users (DAU) and monthly active users (MAU)
-- Click-through rate (CTR) on headlines (reads of full articles)
-- Quiz completion rate and average quiz score (learning signal)
-- Tip adoption proxies (e.g., shares of tips, any linked pledge conversions)
-- API usage and cost (number of LLM calls; helps guide caching/rate-limiting)
-
-Calls-to-action (CTAs)
-- For users: read the Daily Digest, try the quiz, adopt the Tip of the Day, and share articles/tips with local groups.
-- For teachers: use the digest + quiz as a short classroom warm-up or homework prompt.
-- For contributors: help by adding sources, improving prompts for factuality, adding caching, or building small features like bookmarking and email digests.
-
-How to measure locally
-- Add a simple analytics endpoint or inject a minimal event logger to collect anonymous counters (digest viewed, quiz submitted). Keep privacy in mind — prefer aggregated counts over user-level data.
-- Store metrics in a small database or even a CSV during early testing; later migrate to a metrics platform or Prometheus.
-
-Ethics & data considerations
-- Do not store or expose Cerebras API keys in client code or public repos.
-- Avoid collecting PII. If adding analytics, keep it anonymous and opt-in where possible.
-- Be transparent about model limitations and present AI-generated content as assistance, not authoritative fact without verification.
 
