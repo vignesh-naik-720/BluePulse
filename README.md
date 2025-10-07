@@ -157,9 +157,8 @@ Next recommended tasks:
 ## Credits & license
 
 - RSS Feeds: UNEP, NOAA, The Guardian
-- AI: Cerebras AI (Meta Llama)
-- Icons: Lucide React
-- License: MIT
 
+
+Live Demo: https://bluepulse.onrender.com/
 
 
